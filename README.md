@@ -1,7 +1,9 @@
 ## Kernel-Foo dma buf
 
-This repo contains the env and a trigger and I'll gradually add more stuff as we go.  
+This repo contains the env and a trigger and I'll gradually add more stuff as we go.
+
 The env is a modified version of https://github.com/MyEyes/basic_linux_env
+
 The kernel is a 5.10.226 mainline kernel in default config, except that:
 * I've enabled useful debug features
 * I've enabled 9p so a host directory can be mounted
@@ -12,3 +14,5 @@ The two bugs we will look at are:
 * bug in system dma-heap https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=007180fcb6cc4a93211d4cc45fef3f5ccccd56ae
 
 I've included both the `bzImage` and the `vmlinux` ELF file, just for convenience.
+
+Running any of the triggers should likely cause a kernel BUG print.
