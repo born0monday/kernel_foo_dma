@@ -9,7 +9,6 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 
-#define N_PAGES_ALLOC 1
 #define PAGE_SIZE 0x1000
 #define errx(ret_code, msg) do{perror(msg); exit(ret_code);} while(0);
 
@@ -20,7 +19,7 @@ int main(int argc, char* argv[])
         errx(1, "couldn't create anonymous file");
     
     /* setup size of anonymous file, the initial size was 0 */
-    if (ftruncate(mem_fd, PAGE_SIZE * N_PAGES_ALLOC) < 0)
+    if (ftruncate(mem_fd, PAGE_SIZE) < 0)
         errx(1, "couldn't truncate file length");
     
     /* make sure the file cannot be reduced in size */
@@ -33,7 +32,7 @@ int main(int argc, char* argv[])
     
     struct udmabuf_create info = { 0 };
     info.memfd = mem_fd;
-    info.size	 = PAGE_SIZE * N_PAGES_ALLOC;
+    info.size	 = PAGE_SIZE;
     
     /* alloc a `page` array of N_PAGES_ALLOC (i.e. 1 page) */
     int udma_fd = ioctl(dev_fd, UDMABUF_CREATE, &info);

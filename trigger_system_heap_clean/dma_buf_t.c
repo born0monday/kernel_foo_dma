@@ -36,8 +36,8 @@ dma_buf_t * dma_buf_create(size_t size)
     int dev_fd = __get_dev_fd();
     
     /* alloc a `page` array of N_PAGES_ALLOC (i.e. 1 page) */
-    int dma_fd = ioctl(dev_fd, DMA_HEAP_IOCTL_ALLOC, &info);
-    if (dma_fd < 0)
+    int ret = ioctl(dev_fd, DMA_HEAP_IOCTL_ALLOC, &info);
+    if (ret < 0)
     {
         perror("[-] couldn't create udmabuf");
         free(new_buf);
