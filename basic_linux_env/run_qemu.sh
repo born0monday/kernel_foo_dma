@@ -6,4 +6,5 @@ qemu-system-x86_64 \
     -initrd basic_initfs/initramfs\
     -virtfs local,path=./host,mount_tag=host,security_model=passthrough,id=host\
     -nographic
+    #-cpu max\
     #-serial mon:stdio
