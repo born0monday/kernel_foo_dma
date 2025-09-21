@@ -82,7 +82,7 @@ What this means in practice is that in the above scenario we would expect the fo
    spray_array[0]->(kernel side)->pages = [00|01|02|03|04|05|06|07]
 2. free pages array
 3. allocate new array
-   new_array->(kernel side)->pages = [07|06|05|04|03|02|01|07]
+   new_array->(kernel side)->pages = [07|06|05|04|03|02|01]07
 ```
 
 So in that case we haven't really won anything, because we have access to `page #7` anyway.  

@@ -16,3 +16,8 @@ The two bugs we will look at are:
 I've included both the `bzImage` and the `vmlinux` ELF file, just for convenience.
 
 Running any of the triggers should likely cause a kernel BUG print.
+
+### Special thanks
+
+I want to thank `bam0x7` for asking about this CVE in the kctf discord server.  
+Our exchange there inspired me to do this workshop in the first place and it was fun to work with him to help him finish his own exploit.
